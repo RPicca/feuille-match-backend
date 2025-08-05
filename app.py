@@ -74,5 +74,5 @@ def generate():
     nom_fichier = f"Feuille_{equipe}_{adversaire}.xlsx".replace(" ", "_")
     wb.save(output)
     output.seek(0)
-
+    CORS(app, expose_headers=["Content-Disposition"])
     return send_file(output, as_attachment=True, download_name=nom_fichier, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
