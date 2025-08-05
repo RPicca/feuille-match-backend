@@ -4,9 +4,10 @@ import openpyxl
 import os
 from io import BytesIO
 import csv
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 # Constantes Excel
 coord_locaux_visiteurs = [[5, 5], [28, 5]]
 coord_couleurs = [[6, 9], [29, 9]]
