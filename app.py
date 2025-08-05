@@ -7,7 +7,7 @@ import csv
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, expose_headers=["Content-Disposition"])
 # Constantes Excel
 coord_locaux_visiteurs = [[5, 5], [28, 5]]
 coord_couleurs = [[6, 9], [29, 9]]
@@ -74,5 +74,4 @@ def generate():
     nom_fichier = f"Feuille_{equipe}_{adversaire}.xlsx".replace(" ", "_")
     wb.save(output)
     output.seek(0)
-    CORS(app, expose_headers=["Content-Disposition"])
     return send_file(output, as_attachment=True, download_name=nom_fichier, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
