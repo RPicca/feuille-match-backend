@@ -75,3 +75,6 @@ def generate():
     wb.save(output)
     output.seek(0)
     return send_file(output, as_attachment=True, download_name=nom_fichier, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 3000)))
